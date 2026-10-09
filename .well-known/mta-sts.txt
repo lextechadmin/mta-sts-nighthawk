@@ -1,0 +1,14 @@
+version: STSv1
+       mode: testing
+       mx: nighthawksecurityco-com.mail.protection.outlook.com
+       max_age: 86400
+
+   **Line-by-line meaning:**
+   - `version: STSv1` — the only version of the standard.
+   - `mode: testing` — senders fetch the policy, report failures via TLS-RPT,
+     but NEVER delay or bounce mail. Zero risk.
+   - `mx:` — the only hostname allowed to receive your mail with TLS enforced.
+     This is the client's Microsoft 365 EOP endpoint (verify against the
+     current MX record — see Part 3, Step 1).
+   - `max_age: 86400` — senders may cache the policy for 24 hours. Keep it
+     short during rollout so changes take effect quickly.
